@@ -18,7 +18,7 @@ export async function GET() {
 
     const tasks = await getDayTasks(today);
     const prayers = await getDayPrayers(today);
-    const dayNumber = entry.day_number || 1;
+    const dayNumber = (entry as any).day_number || 1;
     const quote = quotes[(dayNumber - 1) % quotes.length];
 
     return NextResponse.json({
